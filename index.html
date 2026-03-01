@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Salary Management</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="form-box">
+        <form action="" class="form-new">
+          <h2>Employee Salary Management</h2>
+          <div class="form-card-signup">
+            <div class="form-input">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter Name"
+              />
+              <span id="nameError" class="error"></span>
+            </div>
+
+            <div class="form-input">
+              <label for="role">Role</label>
+              <select name="role" id="role">
+                <option value="">Select Role</option>
+                <option value="Designer">Designer</option>
+                <option value="Developer">Developer</option>
+                <option value="Tester">Tester</option>
+                <option value="Database Administrator">
+                  Database Administrator
+                </option>
+                <option value="Software Engineer">Software Engineer</option>
+              </select>
+              <span id="roleError" class="error"></span>
+            </div>
+
+            <div class="form-input">
+              <label for="salary">Salary</label>
+              <input
+                type="number"
+                id="salary"
+                name="salary"
+                placeholder="Enter Salary"
+              />
+              <span id="salaryError" class="error"></span>
+            </div>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="filter-box">
+        <label for="filterRole"><b>Filter:</b></label>
+        <select id="filterRole">
+          <option value="">Select Role</option>
+          <option value="Designer">Designer</option>
+          <option value="Developer">Developer</option>
+          <option value="Tester">Tester</option>
+          <option value="Database Administrator">Database Administrator</option>
+          <option value="Software Engineer">Software Engineer</option>
+        </select>
+      </div>
+
+      <table id="employeeTable">
+        <thead>
+          <tr>
+            <th>Sno</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody id="employeeBody"></tbody>
+      </table>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
