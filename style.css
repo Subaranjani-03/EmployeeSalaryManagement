@@ -9,6 +9,7 @@
 
 .wrapper {
   height: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +92,9 @@ button:hover {
 /* ---------table-------- */
 
 #employeeTable {
+  /* border: 2px solid green; */
   width: 800px;
+  /* height: auto; */
   border-collapse: collapse;
   background: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -155,5 +158,56 @@ button:hover {
   }
   #print {
     display: none;
+  }
+}
+
+/* --------media query------- */
+
+/* -------tab view-------- */
+@media all and (max-width: 768px) {
+  .wrapper {
+    height: auto;
+    gap: 45px;
+  }
+  #employeeTable {
+    width: 100%;
+  }
+  .form-input input,
+  .form-input select {
+    border: 1px solid;
+  }
+
+  .table-actions {
+    width: 100%;
+  }
+}
+
+/* -------mobile view-------- */
+@media all and (max-width: 576px) {
+  .form-box {
+    width: 350px;
+    padding: 15px;
+  }
+  .form-box h2 {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .form-new {
+    width: 100%;
+  }
+
+  .form-input input,
+  .form-input select {
+    width: 250px;
+  }
+  button {
+    width: 70%;
+  }
+  #employeeTable {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .table-actions {
+    width: 300px;
   }
 }
