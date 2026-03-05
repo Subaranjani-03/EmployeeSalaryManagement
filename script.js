@@ -1,5 +1,35 @@
 $(document).ready(function () {
+  const roles = [
+    "Designer",
+    "Developer",
+    "Tester",
+    "Database Administrator",
+    "Software Engineer",
+  ];
+
+  function loadRoles() {
+    $(".role-select").each(function () {
+      let firstOption = "";
+
+      if ($(this).attr("id") === "filterRole") {
+        firstOption = '<option value="">Select All</option>';
+      } else {
+        firstOption = '<option value="">Select Role</option>';
+      }
+
+      let options = firstOption;
+
+      roles.forEach(function (role) {
+        options += `<option value="${role}">${role}</option>`;
+      });
+
+      $(this).html(options);
+    });
+  }
+
+  loadRoles();
   dispEmployee();
+  
   $(".form-new").on("submit", function (e) {
     e.preventDefault();
 
@@ -56,6 +86,7 @@ $(document).ready(function () {
 
       dispEmployee();
       this.reset();
+      $("#role").val("");
     }
   });
 
@@ -66,38 +97,38 @@ $(document).ready(function () {
 
   // Display Function
   function dispEmployee() {
-  let employees = JSON.parse(localStorage.getItem("employees")) || [];
-  let selectedRole = $("#filterRole").val();
+    let employees = JSON.parse(localStorage.getItem("employees")) || [];
+    let selectedRole = $("#filterRole").val();
 
-  let filteredEmployees;
+    let filteredEmployees;
 
-  if (selectedRole === "") {
-    filteredEmployees = employees;
-  } else {
-    filteredEmployees = employees.filter(function (emp) {
-      return emp.role === selectedRole;
-    });
-  }
+    if (selectedRole === "") {
+      filteredEmployees = employees;
+    } else {
+      filteredEmployees = employees.filter(function (emp) {
+        return emp.role === selectedRole;
+      });
+    }
 
-  let tableData = "";
-  let totalSalary = 0;
+    let tableData = "";
+    let totalSalary = 0;
 
-  if (filteredEmployees.length === 0) {
-    tableData = `
+    if (filteredEmployees.length === 0) {
+      tableData = `
       <tr>
         <td colspan="4" style="text-align:center; color:red; font-weight:bold;">
           No Records Found
         </td>
       </tr>
     `;
-    $("#employeeBody").html(tableData);
-    return;
-  }
+      $("#employeeBody").html(tableData);
+      return;
+    }
 
-  filteredEmployees.forEach(function (emp, index) {
-    totalSalary += Number(emp.salary);
+    filteredEmployees.forEach(function (emp, index) {
+      totalSalary += Number(emp.salary);
 
-    tableData += `
+      tableData += `
       <tr>
         <td>${index + 1}</td>
         <td>${emp.name}</td>
@@ -105,15 +136,15 @@ $(document).ready(function () {
         <td>Rs ${emp.salary}</td>
       </tr>
     `;
-  });
+    });
 
-  tableData += `
+    tableData += `
     <tr style="font-weight:bold; background:#f2f2f2;">
       <td colspan="3" style="text-align:right;">Total Salary</td>
       <td>Rs ${totalSalary}</td>
     </tr>
   `;
 
-  $("#employeeBody").html(tableData);
-}
+    $("#employeeBody").html(tableData);
+  }
 });

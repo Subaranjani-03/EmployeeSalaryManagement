@@ -32,16 +32,7 @@
 
             <div class="form-input">
               <label for="role">Role</label>
-              <select name="role" id="role">
-                <option value="">Select Role</option>
-                <option value="Designer">Designer</option>
-                <option value="Developer">Developer</option>
-                <option value="Tester">Tester</option>
-                <option value="Database Administrator">
-                  Database Administrator
-                </option>
-                <option value="Software Engineer">Software Engineer</option>
-              </select>
+              <select name="role" id="role" class="role-select"></select>
               <span id="roleError" class="error"></span>
             </div>
 
@@ -60,16 +51,13 @@
         </form>
       </div>
 
-      <div class="filter-box">
-        <label for="filterRole"><b>Filter:</b></label>
-        <select id="filterRole">
-          <option value="">Select Role</option>
-          <option value="Designer">Designer</option>
-          <option value="Developer">Developer</option>
-          <option value="Tester">Tester</option>
-          <option value="Database Administrator">Database Administrator</option>
-          <option value="Software Engineer">Software Engineer</option>
-        </select>
+      <div class="table-actions">
+        <div class="filter-box">
+          <!-- <label for="filterRole"></label> -->
+          <select id="filterRole" class="role-select"></select>
+        </div>
+
+        <button onclick="window.print()" id="print">Print Table</button>
       </div>
 
       <table id="employeeTable">
