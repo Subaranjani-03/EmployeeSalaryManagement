@@ -8,14 +8,15 @@
 }
 
 .wrapper {
-  height: auto;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  background: linear-gradient(to right, #8778f1, #8393f4, #7faaf4);
+  background: linear-gradient(to right, #667eea, #764ba2);
   background-size: cover;
+  background-attachment: fixed;
   padding: 50px;
 }
 
@@ -77,11 +78,11 @@ button {
   color: white;
   border: none;
   cursor: pointer;
-  background: linear-gradient(to right, #8778f1, #8393f4, #7faaf4);
+  background: linear-gradient(to right, #667eea, #764ba2);
 }
 
 button:hover {
-  background: linear-gradient(to left, #8778f1, #8393f4, #7faaf4);
+  background: linear-gradient(to left, #667eea, #764ba2);
 }
 
 .error {
@@ -94,7 +95,6 @@ button:hover {
 #employeeTable {
   /* border: 2px solid green; */
   width: 800px;
-  /* height: auto; */
   border-collapse: collapse;
   background: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
